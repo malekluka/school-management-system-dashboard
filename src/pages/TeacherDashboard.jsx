@@ -1,5 +1,8 @@
 import React from "react";
 import { teacherData } from "../data/mockData";
+import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
+import TeacherIcon from '../assets/Teacher.png'
+
 import {
   Calendar,
   ChevronLeft,
@@ -12,6 +15,8 @@ import {
 } from "lucide-react";
 
 const TeacherDashboard = () => {
+  const socials = [Facebook, Linkedin, Twitter, Instagram];
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -24,7 +29,7 @@ const TeacherDashboard = () => {
           <div className="flex flex-col items-center text-center mb-6">
             <div className="relative mb-4">
               <img
-                src="/api/placeholder/100/100"
+                src= {TeacherIcon} 
                 alt="Profile"
                 className="w-24 h-24 rounded-full object-cover border-4 border-indigo-100"
               />
@@ -43,12 +48,16 @@ const TeacherDashboard = () => {
             </p>
           </div>
           <div className="flex justify-center space-x-4 mb-6">
-            <div className="p-2 bg-gray-100 rounded-lg">🚗</div>
-            <div className="p-2 bg-gray-100 rounded-lg">📍</div>
-            <div className="p-2 bg-gray-100 rounded-lg">📘</div>
-            <div className="p-2 bg-gray-100 rounded-lg">🐦</div>
-            <div className="p-2 bg-gray-100 rounded-lg">📷</div>
-          </div>
+  {socials.map((Icon, index) => (
+    <div
+      key={index}
+      className="p-2 bg-gray-50 rounded-lg flex items-center justify-center"
+    >
+      <Icon className="w-5 h-5 text-gray-500 fill-current" />
+    </div>
+  ))}
+</div>
+
           {/* Stats Cards */}
           <div className="grid grid-cols-2 gap-4 mb-6">
             <div className="bg-gray-50 rounded-lg p-4 text-center">
@@ -92,7 +101,6 @@ const TeacherDashboard = () => {
               Create New Group
             </button>
           </div>
-          // Around line 70, add proper spacing and user avatars:
           <div className="flex items-center justify-end mt-4">
             {[1, 2, 3].map((i) => (
               <img
@@ -169,18 +177,7 @@ const TeacherDashboard = () => {
             </table>
           </div>
 
-          <div className="flex items-center justify-center space-x-2 mt-6">
-            <button className="w-8 h-8 bg-orange-500 text-white rounded-lg flex items-center justify-center">
-              1
-            </button>
-            <button className="w-8 h-8 text-gray-400 hover:bg-gray-100 rounded-lg flex items-center justify-center">
-              2
-            </button>
-            <span className="text-gray-400">...</span>
-            <button className="w-8 h-8 text-gray-400 hover:bg-gray-100 rounded-lg flex items-center justify-center">
-              10
-            </button>
-          </div>
+          
         </div>
 
         {/* Event Calendar & Timeline */}

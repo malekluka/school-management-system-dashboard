@@ -155,7 +155,7 @@ const StudentDashboard = () => {
                   key={i}
                   className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center"
                 >
-                  <Icon className="w-5 h-5 text-gray-600" />
+                  <Icon className="w-5 h-5 text-gray-500 fill-current" />
                 </div>
               ))}
             </div>
@@ -322,11 +322,23 @@ const StudentDashboard = () => {
                 </tbody>{" "}
               </table>{" "}
             </div>{" "}
+            <div className="flex items-center justify-center space-x-2 mt-6">
+              <button className="w-8 h-8 bg-orange-400 text-white rounded-lg flex items-center justify-center">
+                1
+              </button>
+              <button className="w-8 h-8 text-gray-400 hover:bg-gray-100 rounded-lg flex items-center justify-center">
+                2
+              </button>
+              <span className="text-gray-400">...</span>
+              <button className="w-8 h-8 text-gray-400 hover:bg-gray-100 rounded-lg flex items-center justify-center">
+                10
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Right Sidebar */}
-        <div className="space-y-6 w-[320px] max-h-[420px]">
+      <  div className="space-y-6 w-[320px] max-h-[420px]">
           {/* Event Calendar */}
           <div className="bg-indigo-600 rounded-xl p-6 text-white">
             <div className="flex items-center justify-between mb-6">
