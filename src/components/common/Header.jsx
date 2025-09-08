@@ -1,6 +1,6 @@
 import React from 'react';
 import { Search, Mail, Bell, ChevronDown } from 'lucide-react';
-import LanguageIcon from '../../assets/language-icon.png';
+import LanguageIcon from '../../assets/Language-icon.png';
 import AdminIcon from '../../assets/Admin.png'
 
 const Header = () => {
