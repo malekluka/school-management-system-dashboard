@@ -18,10 +18,10 @@ const StudentDashboard = () => {
     <div className="space-y-6">
       {/* Header with welcome message */}
 
-      <div className="flex">
-        {/* Left Sidebar with Profile */}
-        <div className="space-y-6 w-[400px]">
-          {/* Profile */}
+      <div className="flex space-x-6">
+      {/* Left Sidebar with Profile */}
+      <div className="space-y-6 w-[350px]">
+      {/* Profile */}
           <div className="bg-white rounded-xl shadow-sm p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold text-gray-800">Bio</h2>
@@ -33,8 +33,8 @@ const StudentDashboard = () => {
               <img
                 src={studentIcon}
                 alt="Profile"
-                className="w-40 h-40 rounded-full mx-auto mb-4 border-4 border-indigo-100"
-              />
+                className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-indigo-100"
+                />
               <h3 className="font-bold text-gray-800">{studentData.profile.name} <span className="text-orange-500">({studentData.profile.role})</span></h3>
               <p className="font-bold text-sm text-gray-600 mb-1">{studentData.profile.email}</p>
               <p className="font-bold text-sm text-gray-600">+ {studentData.profile.phone}</p>
@@ -76,9 +76,10 @@ const StudentDashboard = () => {
         </div>
 
         {/* Main Content Area */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Stats Cards */}
-          <div className="grid grid-cols-3 gap-6">
+        <div className="flex-1 space-y-6 mx-6">
+        {/* Stats Cards */}
+        <div className="grid grid-cols-2 gap-6 mb-6">
+           
            
             
             <div className="bg-white rounded-xl shadow-sm p-6 text-center">
@@ -166,8 +167,8 @@ const StudentDashboard = () => {
         </div>
 
         {/* Right Sidebar */}
-        <div className="space-y-6">
-          {/* Event Calendar */}
+        <div className="space-y-6 w-[320px]">
+        {/* Event Calendar */}
           <div className="bg-indigo-600 rounded-xl p-6 text-white">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold">Event Calendar</h2>

@@ -17,6 +17,7 @@ import {
 const Sidebar = () => {
   const location = useLocation();
   
+  
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/teacher-dashboard' },
     { icon: Users, label: 'Students', path: '/students' },
