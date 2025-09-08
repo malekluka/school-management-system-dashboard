@@ -19,9 +19,9 @@ const Sidebar = () => {
   
   
   const menuItems = [
-    { icon: LayoutDashboard, label: 'Dashboard', path: '/teacher-dashboard' },
-    { icon: Users, label: 'Students', path: '/students' },
-    { icon: GraduationCap, label: 'Teachers', path: '/teachers' },
+    { icon: LayoutDashboard, label: 'Dashboard', path: '/' },
+    { icon: Users, label: 'Students', path: '/student-dashboard' },
+    { icon: GraduationCap, label: 'Teachers', path: '/teacher-dashboard' },
     { icon: UserCheck, label: 'Parents', path: '/parents' },
     { icon: CreditCard, label: 'Account', path: '/account' },
     { icon: BookOpen, label: 'Class', path: '/class' },
@@ -55,7 +55,7 @@ const Sidebar = () => {
               key={item.path}
               to={item.path}
               className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
-                isActive 
+                isActive || (location.pathname === '/' && item.path === '/student-dashboard')
                   ? 'bg-indigo-50 text-indigo-600 border-r-2 border-indigo-600' 
                   : 'text-gray-600 hover:bg-gray-50'
               }`}

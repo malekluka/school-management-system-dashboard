@@ -10,7 +10,7 @@ function App() {
     <Router>
       <Layout>
         <Routes>
-          <Route path="/" element={<Navigate to="/teacher-dashboard" replace />} />
+          <Route path="/" element={<Navigate to="/student-dashboard" replace />} />
           <Route path="/teacher-dashboard" element={<TeacherDashboard />} />
           <Route path="/student-dashboard" element={<StudentDashboard />} />
         </Routes>

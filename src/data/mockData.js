@@ -84,10 +84,10 @@ export const studentData = {
     { subject: "Chemistry", type: "Equations", icon: "⚗️" },
     { subject: "Physics", type: "Directions", icon: "🔬" }
   ],
-  courseStats: {
-    completed: 50,
-    inProgress: 15,
-    exams: 20,
-    incomplete: 15
+  attendanceStats: {
+    Present: 50,
+    HalfDay: 20,
+    Late: 15,
+    Absent: 15
   }
 };

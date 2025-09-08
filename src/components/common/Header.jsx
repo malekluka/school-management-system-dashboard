@@ -5,7 +5,7 @@ import AdminIcon from '../../assets/Admin.png'
 
 const Header = () => {
   return (
-    <header className="flex bg-white shadow-sm px-6 py-4">
+    <header className="flex bg-white relative shadow-sm px-6 py-4">
       <div className="flex items-center space-x-4">
         <h1 className="text-2xl font-semibold text-gray-800">Dashboard</h1>
 
