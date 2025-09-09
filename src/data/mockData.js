@@ -1,8 +1,8 @@
-import TeacherIcon from '../assets/Teacher-icon.png'
-import StudentIcon from '../assets/Student-icon.png'
-import RandomPeopleAvatar1 from '../assets/random-people-avatar1.png'
-import RandomPeopleAvatar2 from '../assets/random-people-avatar2.png'
-import RandomPeopleAvatar3 from '../assets/random-people-avatar3.png'
+import TeacherIcon from '/Teacher-icon.png'
+import StudentIcon from '/Student-icon.png'
+import RandomPeopleAvatar1 from '/random-people-avatar1.png'
+import RandomPeopleAvatar2 from '/random-people-avatar2.png'
+import RandomPeopleAvatar3 from '/random-people-avatar3.png'
 
 export const teacherData = {
   profile: {

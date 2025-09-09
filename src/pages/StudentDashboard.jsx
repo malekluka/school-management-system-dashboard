@@ -271,7 +271,7 @@ const StudentDashboard = () => {
         {/* Right Sidebar */}
       <  div className="space-y-6 w-[320px] max-h-[420px]">
           {/* Event Calendar */}
-          <div className="bg-indigo-600 rounded-2xl p-6 text-white">
+          <div className="bg-sky-800 rounded-2xl p-6 text-white">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold">Event Calendar</h2>
               <MoreHorizontal className="w-5 h-5" />
