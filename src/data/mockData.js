@@ -21,7 +21,7 @@ export const teacherData = {
     { name: "5th class", type: "Maths", status: "Join" },
     { name: "6th class", type: "Science", status: "Join" }
   ],
-  examResults: [
+  examHelds: [
     { id: "#mat21", studentName: "Jason Black", subject: "Maths", class: "5th", status: "Active", date: "21 Jul 2022" },
     { id: "#mut21", studentName: "Gerald Ferrell", subject: "English", class: "7th", status: "Opened", date: "14 Jun 2022" },
     { id: "#mut21", studentName: "Delbert Barna", subject: "Physics", class: "6th", status: "Completed", date: "10 Mar 2022" },
@@ -81,7 +81,7 @@ export const studentData = {
     ]
   },
   examResults: [
-    { id: '#mat21', type: 'Class Test', subject: 'Maths', grade: 'A', percent: 89, date: '21 Jul 2022' },
+    { id: '#mut21', type: 'Class Test', subject: 'Maths', grade: 'A', percent: 89, date: '21 Jul 2022' },
     { id: '#mat21', type: 'Quarterly Test', subject: 'English', grade: 'A+', percent: 93, date: '14 Jun 2022' },
     { id: '#mat21', type: 'Oral Test', subject: 'Physics', grade: 'B', percent: 78, date: '10 Mar 2022' },
     { id: '#mat21', type: 'Class Test', subject: 'Chemistry', grade: 'A', percent: 88, date: '06 Jan 2022' }

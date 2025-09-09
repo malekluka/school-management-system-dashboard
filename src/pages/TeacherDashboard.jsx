@@ -19,21 +19,19 @@ const TeacherDashboard = () => {
     <div className="space-y-6">
       <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-6 items-stretch">
         {/* Profile Bio Section - Column 1, Row 1 */}
-        
+
         <div className="lg:col-start-1 lg:col-span-1 lg:row-start-1 lg:self-stretch">
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between">
               <h2 className="text-lg font-bold text-gray-800">Bio</h2>
               <MoreHorizontal className="w-5 h-5 text-gray-400" />
             </div>
-            <div className="flex flex-col items-center font-bold text-center mb-6">
-              <div className="relative mb-4">
-                <img
-                  src={teacherData.profile.avatar}
-                  alt="Profile"
-                  className="w-35 h-35 rounded-full object-cover border-4 border-indigo-100"
-                />
-              </div>
+            <div className="flex flex-col items-center font-bold text-center mb-24.5">
+              <img
+                src={teacherData.profile.avatar}
+                alt="Profile"
+                className="w-35 h-35 rounded-full object-cover border-4 border-indigo-100"
+              />
               <h3 className="text-2xl font-semibold text-gray-800">
                 {teacherData.profile.name}{" "}
                 <span className="text-orange-500">
@@ -47,7 +45,7 @@ const TeacherDashboard = () => {
                 + {teacherData.profile.phone}
               </p>
             </div>
-            <div className="flex justify-center space-x-4 mb-8">
+            <div className="flex justify-center space-x-4">
               {socials.map((Icon, index) => (
                 <div
                   key={index}
@@ -66,7 +64,7 @@ const TeacherDashboard = () => {
           <div className="grid grid-cols-2 gap-4 ">
             {/* Second Column - 1st row - 1st column */}
             {/* Events */}
-            <div className="bg-gray-50 rounded-2xl p-4 text-center">
+            <div className="bg-gray-50 rounded-2xl p-4 text-center shadow-sm">
               <div className="flex items-center justify-center mb-2">
                 <span className="text-2xl font-bold text-gray-800">
                   {teacherData.stats.events}
@@ -76,7 +74,7 @@ const TeacherDashboard = () => {
             </div>
 
             {/* Target Achieved */}
-            <div className="bg-gray-50 rounded-2xl p-4 text-center">
+            <div className="bg-gray-50 rounded-2xl p-4 text-center shadow-sm">
               <div className="flex items-center justify-center mb-2">
                 <span className="text-2xl font-bold text-gray-800">
                   {teacherData.stats.targetAchieved}%
@@ -90,12 +88,12 @@ const TeacherDashboard = () => {
           <div className="space-y-2">
             <h4 className="font-bold text-gray-800">Groups</h4>
 
-            <div className="bg-gray-50 p-4 rounded-2xl grid grid-rows-2 gap-4">
+            <div className="bg-gray-50 p-4 rounded-2xl grid grid-rows-2 gap-4 shadow-sm">
               <div className="grid grid-cols-3 gap-4">
                 {teacherData.groups.map((group, index) => (
                   <div
                     key={index}
-                    className="flex flex-col justify-between bg-white p-2 rounded-2xl"
+                    className="flex flex-col justify-between bg-white shadow-sm p-2 rounded-2xl"
                   >
                     <p className="font-bold text-gray-500 text-center mb-2">
                       {group.name}
@@ -110,7 +108,7 @@ const TeacherDashboard = () => {
                   </div>
                 ))}
               </div>
-              <div className="bg-white rounded-2xl p-4 flex items-center justify-between">
+              <div className="bg-white shadow-sm rounded-2xl p-4 flex items-center justify-between">
                 <button className="px-4 py-2 md:text-sm bg-gray-600 text-white rounded-lg hover:bg-indigo-700 transition-colors flex items-center">
                   <Plus className="w-4 h-4" />
                   Create New Group
@@ -153,10 +151,12 @@ const TeacherDashboard = () => {
                   </tr>
                 </thead>
                 <tbody className="bg-white">
-                  {teacherData.examResults.map((result, index) => (
+                  {teacherData.examHelds.map((result, index) => (
                     <tr
                       key={index}
-                      className={`border-b border-gray-50 ${selectedRows.has(result.id) ? "font-semibold" : ""}`}
+                      className={`border-b border-gray-50 ${
+                        selectedRows.has(result.id) ? "font-semibold" : ""
+                      }`}
                     >
                       <td className="py-4 pl-3">
                         <input
@@ -210,13 +210,25 @@ const TeacherDashboard = () => {
               </table>
             </div>
             <div className="mt-6 flex items-center justify-between">
-              <div className="text-sm text-gray-500">Showing 1-10 of {teacherData.examResults.length}</div>
+              <div className="text-sm text-gray-500">
+                Showing 1-10 of {teacherData.examHelds.length}
+              </div>
               <div className="inline-flex items-center gap-2">
-                <button className="px-3 py-1 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">Prev</button>
-                <button className="px-3 py-1 rounded-2xl bg-orange-300 text-white text-sm">1</button>
-                <button className="px-3 py-1 rounded-2xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">2</button>
-                <button className="px-3 py-1 rounded-2xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">3</button>
-                <button className="px-3 py-1 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">Next</button>
+                <button className="px-3 py-1 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                  Prev
+                </button>
+                <button className="px-3 py-1 rounded-2xl bg-orange-300 text-white text-sm">
+                  1
+                </button>
+                <button className="px-3 py-1 rounded-2xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                  2
+                </button>
+                <button className="px-3 py-1 rounded-2xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                  3
+                </button>
+                <button className="px-3 py-1 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                  Next
+                </button>
               </div>
             </div>
           </div>
@@ -230,7 +242,7 @@ const TeacherDashboard = () => {
               <MoreHorizontal className="w-5 h-5" />
             </div>
 
-            <div className="flex space-x-4 mb-6">
+            <div className="flex space-x-4 mb-6 justify-center">
               <button className="px-4 py-2 bg-orange-500 rounded-lg text-sm">
                 Day to day
               </button>
@@ -278,7 +290,10 @@ const TeacherDashboard = () => {
           <div className="rounded-xl">
             <div className="space-y-4">
               {teacherData.timeline.map((item, index) => (
-                <div key={index} className="bg-white rounded-2xl shadow-sm p-4 flex items-start gap-3">
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl shadow-sm p-4 flex items-start gap-3"
+                >
                   <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-800 mb-1">

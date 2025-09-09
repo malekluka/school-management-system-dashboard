@@ -11,11 +11,19 @@ import {
   Pie,
   Cell,
 } from "recharts";
-import { ChevronLeft, ChevronRight, MoreHorizontal, Clock } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  MoreHorizontal,
+  Clock,
+  Printer,
+  Download,
+} from "lucide-react";
 
 const StudentDashboard = () => {
   const COLORS = ["#4F46E5", "#F59E0B", "#10B981", "#EF4444"];
   const socialIcons = [Facebook, Linkedin, Twitter, Instagram];
+  const [selectedRows, setSelectedRows] = React.useState(new Set());
 
   const pieData = [
     {
@@ -42,12 +50,9 @@ const StudentDashboard = () => {
 
   return (
     <div className="space-y-6">
-      {/* Header with welcome message */}
-
-      <div className="flex space-x-6">
-        {/* Left Sidebar with Profile */}
-        <div className="space-y-6 w-[350px]">
-          {/* Profile */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-6 items-stretch">
+        {/* Column 1 spans two rows */}
+        <div className="lg:col-start-1 lg:row-span-2 space-y-6">
           <div className="bg-gray-50 rounded-2xl shadow-sm p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold text-gray-800">Bio</h2>
@@ -55,8 +60,6 @@ const StudentDashboard = () => {
                 <MoreHorizontal className="w-5 h-5" />
               </button>
             </div>
-
-            {/* Profile Card */}
             <div className="text-center">
               <img
                 src={studentData.profile.avatar}
@@ -76,8 +79,6 @@ const StudentDashboard = () => {
                 + {studentData.profile.phone}
               </p>
             </div>
-
-            {/* Personal Details (collapsible UI mock) */}
             <div className="mt-6 rounded-2xl bg-white">
               <div className="bg-orange-50 text-gray-800 rounded-t-xl px-4 py-3 flex items-center justify-between">
                 <span className="text-sm font-medium">Personal Details:</span>
@@ -146,8 +147,6 @@ const StudentDashboard = () => {
                 </div>
               </div>
             </div>
-
-            {/* Social icons row */}
             <div className="mt-6 flex items-center justify-center space-x-4">
               {socialIcons.map((Icon, i) => (
                 <div
@@ -158,8 +157,6 @@ const StudentDashboard = () => {
                 </div>
               ))}
             </div>
-
-            {/* About Student */}
             <div className="mt-6 bg-white rounded-2xl p-6 ">
               <h3 className="text-gray-800 font-semibold mb-2">
                 About Student
@@ -171,11 +168,10 @@ const StudentDashboard = () => {
           </div>
         </div>
 
-        {/* Main Content Area */}
-        <div className="flex-1 space-y-6 mx-6">
-          {/* Stats Cards */}
-          <div className="flex gap-6 mb-6">
-            <div className="flex-1 bg-white rounded-2xl shadow-sm p-6 text-center">
+        {/* Column 2 Row 1: Stats and Attendance */}
+        <div className="lg:col-start-2 lg:col-span-1 lg:row-start-1 space-y-6">
+          <div className="grid grid-cols-2 gap-6">
+            <div className="bg-gray-50 rounded-2xl shadow-sm p-6 text-center">
               <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
                 <div className="w-6 h-6 bg-indigo-600 rounded-full"></div>
               </div>
@@ -184,8 +180,7 @@ const StudentDashboard = () => {
                 {studentData.stats.events}
               </div>
             </div>
-
-            <div className="flex-1 bg-white rounded-2xl shadow-sm p-6 text-center">
+            <div className="bg-gray-50 rounded-2xl shadow-sm p-6 text-center">
               <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
                 <div className="w-6 h-6 bg-indigo-600 rounded"></div>
               </div>
@@ -195,11 +190,10 @@ const StudentDashboard = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-2xl shadow-sm p-6">
+          <div className="bg-gray-50 shadow-sm rounded-2xl p-6">
             <h2 className="text-lg font-semibold text-gray-800 mb-6">
               Attendance
             </h2>
-
             <div className="flex items-center justify-center mb-6">
               <div className="relative w-32 h-32">
                 <ResponsiveContainer width="100%" height="100%">
@@ -220,7 +214,6 @@ const StudentDashboard = () => {
                 </ResponsiveContainer>
               </div>
             </div>
-
             <div className="space-y-3">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
@@ -231,7 +224,6 @@ const StudentDashboard = () => {
                   {studentData.attendanceStats.Present}%
                 </span>
               </div>
-
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
@@ -243,7 +235,6 @@ const StudentDashboard = () => {
                   {studentData.attendanceStats.HalfDay}%
                 </span>
               </div>
-
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
@@ -253,7 +244,6 @@ const StudentDashboard = () => {
                   {studentData.attendanceStats.Late}%
                 </span>
               </div>
-
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -265,27 +255,23 @@ const StudentDashboard = () => {
               </div>
             </div>
           </div>
-          
         </div>
 
-        {/* Right Sidebar */}
-      <  div className="space-y-6 w-[320px] max-h-[420px]">
-          {/* Event Calendar */}
+        {/* Column 3 Row 1: Event Calendar */}
+        <div className="lg:col-start-3 lg:row-start-1 space-y-6 bg-gray-50 rounded-2xl shadow-sm">
           <div className="bg-sky-800 rounded-2xl p-6 text-white">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold">Event Calendar</h2>
               <MoreHorizontal className="w-5 h-5" />
             </div>
-
-            <div className="flex space-x-4 mb-6">
-              <button className="px-4 py-2 bg-orange-500 rounded-lg text-sm">
+            <div className="flex space-x-4 mb-6 justify-center">
+              <button className="px-4 py-2 bg-orange-500 rounded-md text-sm">
                 Day to day
               </button>
-              <button className="px-4 py-2 text-indigo-200 text-sm hover:bg-indigo-500 rounded-lg">
+              <button className="px-4 py-2 text-indigo-200 text-sm hover:bg-indigo-500 rounded-md">
                 Events
               </button>
             </div>
-
             <div className="mb-4">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="font-medium">Feb 2023</h3>
@@ -294,7 +280,6 @@ const StudentDashboard = () => {
                   <ChevronRight className="w-5 h-5 cursor-pointer hover:bg-indigo-500 rounded p-1" />
                 </div>
               </div>
-
               <div className="grid grid-cols-7 gap-1 text-xs mb-2">
                 {["MO", "TU", "WE", "TH", "FR", "SA", "SU"].map((day) => (
                   <div key={day} className="text-center py-1 text-indigo-200">
@@ -302,7 +287,6 @@ const StudentDashboard = () => {
                   </div>
                 ))}
               </div>
-
               <div className="grid grid-cols-7 gap-1 text-sm">
                 {Array.from({ length: 28 }, (_, i) => (
                   <div
@@ -316,6 +300,102 @@ const StudentDashboard = () => {
                     {String(i + 1).padStart(2, "0")}
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Row 2, Columns 2-3: Exam Results */}
+        <div className="lg:col-start-2 lg:col-span-2 lg:row-start-2">
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-lg font-bold text-gray-800">Exam results</h2>
+            <div className="flex space-x-2">
+              <Printer className="w-5 h-5 text-gray-400 cursor-pointer hover:text-gray-600" />
+              <Download className="w-5 h-5 text-gray-400 cursor-pointer hover:text-gray-600" />
+            </div>
+          </div>
+          <div className="bg-gray-50 rounded-2xl shadow-sm p-4">
+            <div className="overflow-x-auto p-1">
+              <table className="w-full">
+                <thead>
+                  <tr className="text-sm text-gray-500">
+                    <th className="text-left py-3">Exam ID</th>
+                    <th className="text-left py-3">Type</th>
+                    <th className="text-left py-3">Subject</th>
+                    <th className="text-left py-3">Grade</th>
+                    <th className="text-left py-3">Percent</th>
+                    <th className="text-left py-3">Date</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white">
+                  {studentData.examResults.map((result, index) => (
+                    <tr
+                      key={index}
+                      className={`border-b border-gray-50 ${
+                        selectedRows.has(result.id) ? "font-semibold" : ""
+                      }`}
+                    >
+                      <td className="py-4 pl-3">
+                        <input
+                          type="checkbox"
+                          className="w-4 h-4 text-indigo-600"
+                          checked={selectedRows.has(result.id)}
+                          onChange={() => {
+                            setSelectedRows((prev) => {
+                              const next = new Set(prev);
+                              if (next.has(result.id)) {
+                                next.delete(result.id);
+                              } else {
+                                next.add(result.id);
+                              }
+                              return next;
+                            });
+                          }}
+                        />
+                        <span className="ml-2 text-sm text-gray-800">
+                          {result.id}
+                        </span>
+                      </td>
+                      <td className="py-4 text-sm text-gray-800">
+                        {result.type}
+                      </td>
+                      <td className="py-4 text-sm text-gray-600">
+                        {result.subject}
+                      </td>
+                      <td className="py-4 text-sm text-gray-600">
+                        {result.grade}
+                      </td>
+                      <td className="py-4 text-sm text-gray-600">
+                        {result.percent}%
+                      </td>
+                      <td className="py-4 text-sm text-gray-600">
+                        {result.date}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-6 flex items-center justify-between">
+              <div className="text-sm text-gray-500">
+                Showing 1-10 of {studentData.examResults.length}
+              </div>
+              <div className="inline-flex items-center gap-2">
+                <button className="px-3 py-1 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                  Prev
+                </button>
+                <button className="px-3 py-1 rounded-2xl bg-orange-300 text-white text-sm">
+                  1
+                </button>
+                <button className="px-3 py-1 rounded-2xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                  2
+                </button>
+                <button className="px-3 py-1 rounded-2xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                  3
+                </button>
+                <button className="px-3 py-1 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                  Next
+                </button>
               </div>
             </div>
           </div>
