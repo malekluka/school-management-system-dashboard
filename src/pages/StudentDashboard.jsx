@@ -12,7 +12,6 @@ import {
   Cell,
 } from "recharts";
 import { ChevronLeft, ChevronRight, MoreHorizontal, Clock } from "lucide-react";
-import studentIcon from "../assets/student-icon.png";
 
 const StudentDashboard = () => {
   const COLORS = ["#4F46E5", "#F59E0B", "#10B981", "#EF4444"];
@@ -49,7 +48,7 @@ const StudentDashboard = () => {
         {/* Left Sidebar with Profile */}
         <div className="space-y-6 w-[350px]">
           {/* Profile */}
-          <div className="bg-gray-50 rounded-xl shadow-sm p-6">
+          <div className="bg-gray-50 rounded-2xl shadow-sm p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold text-gray-800">Bio</h2>
               <button className="text-gray-400">
@@ -60,7 +59,7 @@ const StudentDashboard = () => {
             {/* Profile Card */}
             <div className="text-center">
               <img
-                src={studentIcon}
+                src={studentData.profile.avatar}
                 alt="Profile"
                 className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-indigo-100"
               />
@@ -79,7 +78,7 @@ const StudentDashboard = () => {
             </div>
 
             {/* Personal Details (collapsible UI mock) */}
-            <div className="mt-6 rounded-xl bg-white">
+            <div className="mt-6 rounded-2xl bg-white">
               <div className="bg-orange-50 text-gray-800 rounded-t-xl px-4 py-3 flex items-center justify-between">
                 <span className="text-sm font-medium">Personal Details:</span>
                 <span className="text-gray-500">^</span>
@@ -161,7 +160,7 @@ const StudentDashboard = () => {
             </div>
 
             {/* About Student */}
-            <div className="mt-6 bg-white rounded-xl p-6 ">
+            <div className="mt-6 bg-white rounded-2xl p-6 ">
               <h3 className="text-gray-800 font-semibold mb-2">
                 About Student
               </h3>
@@ -176,7 +175,7 @@ const StudentDashboard = () => {
         <div className="flex-1 space-y-6 mx-6">
           {/* Stats Cards */}
           <div className="flex gap-6 mb-6">
-            <div className="flex-1 bg-white rounded-xl shadow-sm p-6 text-center">
+            <div className="flex-1 bg-white rounded-2xl shadow-sm p-6 text-center">
               <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
                 <div className="w-6 h-6 bg-indigo-600 rounded-full"></div>
               </div>
@@ -186,7 +185,7 @@ const StudentDashboard = () => {
               </div>
             </div>
 
-            <div className="flex-1 bg-white rounded-xl shadow-sm p-6 text-center">
+            <div className="flex-1 bg-white rounded-2xl shadow-sm p-6 text-center">
               <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
                 <div className="w-6 h-6 bg-indigo-600 rounded"></div>
               </div>
@@ -196,7 +195,7 @@ const StudentDashboard = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div className="bg-white rounded-2xl shadow-sm p-6">
             <h2 className="text-lg font-semibold text-gray-800 mb-6">
               Attendance
             </h2>
@@ -266,81 +265,13 @@ const StudentDashboard = () => {
               </div>
             </div>
           </div>
-          {/* All Exam Results */}{" "}
-          <div className="bg-gray-50 rounded-xl shadow-sm p-6">
-            {" "}
-            <div className="flex items-center justify-between mb-4">
-              {" "}
-              <h2 className="text-lg font-semibold text-gray-800">
-                {" "}
-                All Exam Results{" "}
-              </h2>{" "}
-            </div>{" "}
-            <div className="overflow-x-auto rounded-xl">
-              {" "}
-              <table className="w-full">
-                {" "}
-                <thead>
-                  {" "}
-                  <tr className="text-xs text-gray-500">
-                    {" "}
-                    <th className="text-left py-3 w-10"></th>{" "}
-                    <th className="text-left py-3">Exam Id</th>{" "}
-                    <th className="text-left py-3">Type</th>{" "}
-                    <th className="text-left py-3">Subject</th>{" "}
-                    <th className="text-left py-3">Grade</th>{" "}
-                    <th className="text-left py-3">%</th>{" "}
-                    <th className="text-left py-3">Date</th>{" "}
-                  </tr>{" "}
-                </thead>{" "}
-                <tbody className="bg-white">
-                  {" "}
-                  {studentData.examResults?.map((row, index) => (
-                    <tr key={index} className="border-b border-gray-50">
-                      {" "}
-                      <td className="py-4">
-                        {" "}
-                        <input type="checkbox" className="w-4 h-4" />{" "}
-                      </td>{" "}
-                      <td className="py-4 text-sm text-gray-800">{row.id}</td>{" "}
-                      <td className="py-4 text-sm text-gray-600">{row.type}</td>{" "}
-                      <td className="py-4 text-sm text-gray-800">
-                        {" "}
-                        {row.subject}{" "}
-                      </td>{" "}
-                      <td className="py-4 text-sm text-gray-800">
-                        {" "}
-                        {row.grade}{" "}
-                      </td>{" "}
-                      <td className="py-4 text-sm text-gray-600">
-                        {" "}
-                        {row.percent}{" "}
-                      </td>{" "}
-                      <td className="py-4 text-sm text-gray-600">{row.date}</td>{" "}
-                    </tr>
-                  ))}{" "}
-                </tbody>{" "}
-              </table>{" "}
-            </div>{" "}
-            <div className="flex items-center justify-center space-x-2 mt-6">
-              <button className="w-8 h-8 bg-orange-400 text-white rounded-lg flex items-center justify-center">
-                1
-              </button>
-              <button className="w-8 h-8 text-gray-400 hover:bg-gray-100 rounded-lg flex items-center justify-center">
-                2
-              </button>
-              <span className="text-gray-400">...</span>
-              <button className="w-8 h-8 text-gray-400 hover:bg-gray-100 rounded-lg flex items-center justify-center">
-                10
-              </button>
-            </div>
-          </div>
+          
         </div>
 
         {/* Right Sidebar */}
       <  div className="space-y-6 w-[320px] max-h-[420px]">
           {/* Event Calendar */}
-          <div className="bg-indigo-600 rounded-xl p-6 text-white">
+          <div className="bg-indigo-600 rounded-2xl p-6 text-white">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold">Event Calendar</h2>
               <MoreHorizontal className="w-5 h-5" />

@@ -1,77 +1,82 @@
 import React from "react";
 import { teacherData } from "../data/mockData";
-import { Facebook, Twitter, Instagram, Linkedin, Mail } from "lucide-react";
-import TeacherIcon from '../assets/Teacher.png'
+import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
 
 import {
-  Calendar,
   ChevronLeft,
   ChevronRight,
   Plus,
   MoreHorizontal,
   Printer,
   Download,
-  Clock,
 } from "lucide-react";
 
 const TeacherDashboard = () => {
   const socials = [Facebook, Linkedin, Twitter, Instagram];
+  const [selectedRows, setSelectedRows] = React.useState(new Set());
 
   return (
     <div className="space-y-6">
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Profile Bio Section */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold text-gray-800">Bio</h2>
-            <MoreHorizontal className="w-5 h-5 text-gray-400" />
-          </div>
-          <div className="flex flex-col items-center text-center mb-6">
-            <div className="relative mb-4">
-              <img
-                src= {TeacherIcon} 
-                alt="Profile"
-                className="w-24 h-24 rounded-full object-cover border-4 border-indigo-100"
-              />
+      <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-6 items-stretch">
+        {/* Profile Bio Section - Column 1, Row 1 */}
+        
+        <div className="lg:col-start-1 lg:col-span-1 lg:row-start-1 lg:self-stretch">
+          <div className="bg-gray-50 rounded-2xl shadow-sm p-6">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-lg font-bold text-gray-800">Bio</h2>
+              <MoreHorizontal className="w-5 h-5 text-gray-400" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800">
-              {teacherData.profile.name}{" "}
-              <span className="text-orange-500">
-                ({teacherData.profile.role})
-              </span>
-            </h3>
-            <p className="text-gray-600 text-sm mb-1">
-              {teacherData.profile.email}
-            </p>
-            <p className="text-gray-600 text-sm">
-              + {teacherData.profile.phone}
-            </p>
-          </div>
-          <div className="flex justify-center space-x-4 mb-6">
-  {socials.map((Icon, index) => (
-    <div
-      key={index}
-      className="p-2 bg-gray-50 rounded-lg flex items-center justify-center"
-    >
-      <Icon className="w-5 h-5 text-gray-500 fill-current" />
-    </div>
-  ))}
-</div>
-
-          {/* Stats Cards */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
-            <div className="bg-gray-50 rounded-lg p-4 text-center">
-              <div className="flex items-center justify-center mb-2">
-                <div className="w-8 h-8 bg-indigo-100 rounded-full flex items-center justify-center">
-                  <Calendar className="w-4 h-4 text-indigo-600" />
+            <div className="flex flex-col items-center font-bold text-center mb-6">
+              <div className="relative mb-4">
+                <img
+                  src={teacherData.profile.avatar}
+                  alt="Profile"
+                  className="w-35 h-35 rounded-full object-cover border-4 border-indigo-100"
+                />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-800">
+                {teacherData.profile.name}{" "}
+                <span className="text-orange-500">
+                  ({teacherData.profile.role})
+                </span>
+              </h3>
+              <p className="text-gray-600 text-sm mb-1">
+                {teacherData.profile.email}
+              </p>
+              <p className="text-gray-600 text-sm">
+                + {teacherData.profile.phone}
+              </p>
+            </div>
+            <div className="flex justify-center space-x-4 mb-8">
+              {socials.map((Icon, index) => (
+                <div
+                  key={index}
+                  className="p-2 bg-gray-50 rounded-lg flex items-center justify-center"
+                >
+                  <Icon className="w-5 h-5 text-gray-500 fill-current" />
                 </div>
-                <span className="ml-2 text-2xl font-bold text-gray-800">
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Stats & Groups - Column 2, Row 1 */}
+        <div className="lg:col-start-2 lg:col-span-1 lg:row-start-1 lg:self-stretch space-y-6 h-full">
+          {/* Stats Cards */}
+          <div className="grid grid-cols-2 gap-4 ">
+            {/* Second Column - 1st row - 1st column */}
+            {/* Events */}
+            <div className="bg-gray-50 rounded-2xl p-4 text-center">
+              <div className="flex items-center justify-center mb-2">
+                <span className="text-2xl font-bold text-gray-800">
                   {teacherData.stats.events}
                 </span>
               </div>
               <p className="text-sm text-gray-600">Events</p>
             </div>
-            <div className="bg-gray-50 rounded-lg p-4 text-center">
+
+            {/* Target Achieved */}
+            <div className="bg-gray-50 rounded-2xl p-4 text-center">
               <div className="flex items-center justify-center mb-2">
                 <span className="text-2xl font-bold text-gray-800">
                   {teacherData.stats.targetAchieved}%
@@ -80,110 +85,146 @@ const TeacherDashboard = () => {
               <p className="text-sm text-gray-600">Target achieved</p>
             </div>
           </div>
+
           {/* Groups Section */}
-          <div>
-            <h4 className="font-semibold text-gray-800 mb-4">Groups</h4>
-            <div className="space-y-3">
-              {teacherData.groups.map((group, index) => (
-                <div key={index} className="flex items-center justify-between">
-                  <div>
-                    <p className="font-medium text-gray-800">{group.name}</p>
-                    <p className="text-sm text-gray-600">{group.type}</p>
+          <div className="space-y-2">
+            <h4 className="font-bold text-gray-800">Groups</h4>
+
+            <div className="bg-gray-50 p-4 rounded-2xl grid grid-rows-2 gap-4">
+              <div className="grid grid-cols-3 gap-4">
+                {teacherData.groups.map((group, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col justify-between bg-white p-2 rounded-2xl"
+                  >
+                    <p className="font-bold text-gray-500 text-center mb-2">
+                      {group.name}
+                    </p>
+                    <p className="text-sm text-gray-600 text-center mb-5">
+                      {group.type}
+                    </p>
+
+                    <button className="px-4 py-1 bg-orange-300 font-bold text-sm rounded-lg hover:bg-orange-200 transition-colors">
+                      {group.status}
+                    </button>
                   </div>
-                  <button className="px-4 py-1 bg-orange-100 text-orange-600 text-sm rounded-lg hover:bg-orange-200 transition-colors">
-                    {group.status}
-                  </button>
+                ))}
+              </div>
+              <div className="bg-white rounded-2xl p-4 flex items-center justify-between">
+                <button className="px-4 py-2 md:text-sm bg-gray-600 text-white rounded-lg hover:bg-indigo-700 transition-colors flex items-center">
+                  <Plus className="w-4 h-4" />
+                  Create New Group
+                </button>
+                <div className="flex items-center">
+                  {teacherData.groupAvatars.map((avatar) => (
+                    <img
+                      key={avatar.id}
+                      src={avatar.src}
+                      alt={avatar.alt}
+                      className="w-10 h-10 rounded-full -ml-2 border-2 border-white"
+                    />
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
-            <button className="w-full mt-4 px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors flex items-center justify-center">
-              <Plus className="w-4 h-4 mr-2" />
-              Create New Group
-            </button>
-          </div>
-          <div className="flex items-center justify-end mt-4">
-            {[1, 2, 3].map((i) => (
-              <img
-                key={i}
-                src={`/api/placeholder/24/24`}
-                className="w-6 h-6 rounded-full -ml-2 border-2 border-white"
-              />
-            ))}
           </div>
         </div>
 
-        {/* Exam Results Section */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold text-gray-800">Exam helds</h2>
+        {/* Exam Results - Columns 1-2, Row 2 */}
+        <div className="lg:col-start-1 lg:col-span-2 lg:row-start-2">
+          <div className="flex items-center justify-between mb-2">
+            <h2 className="text-lg font-bold text-gray-800">Exam helds</h2>
             <div className="flex space-x-2">
               <Printer className="w-5 h-5 text-gray-400 cursor-pointer hover:text-gray-600" />
               <Download className="w-5 h-5 text-gray-400 cursor-pointer hover:text-gray-600" />
             </div>
           </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="text-xs text-gray-500 border-b">
-                  <th className="text-left py-3">Exam ID</th>
-                  <th className="text-left py-3">Student Name</th>
-                  <th className="text-left py-3">Subject</th>
-                  <th className="text-left py-3">Class</th>
-                  <th className="text-left py-3">Status</th>
-                  <th className="text-left py-3">Sub. Date</th>
-                </tr>
-              </thead>
-              <tbody>
-                {teacherData.examResults.map((result, index) => (
-                  <tr key={index} className="border-b border-gray-50">
-                    <td className="py-4">
-                      <input
-                        type="checkbox"
-                        className="w-4 h-4 text-indigo-600"
-                      />
-                      <span className="ml-2 text-sm text-gray-800">
-                        {result.id}
-                      </span>
-                    </td>
-                    <td className="py-4 text-sm text-gray-800">
-                      {result.studentName}
-                    </td>
-                    <td className="py-4 text-sm text-gray-600">
-                      {result.subject}
-                    </td>
-                    <td className="py-4 text-sm text-gray-600">
-                      {result.class}
-                    </td>
-                    <td className="py-4">
-                      <span
-                        className={`px-2 py-1 text-xs rounded-full ${
-                          result.status === "Active"
-                            ? "bg-green-100 text-green-600"
-                            : result.status === "Completed"
-                            ? "bg-blue-100 text-blue-600"
-                            : "bg-gray-100 text-gray-600"
-                        }`}
-                      >
-                        {result.status}
-                      </span>
-                    </td>
-                    <td className="py-4 text-sm text-gray-600">
-                      {result.date}
-                    </td>
+          <div className="bg-gray-50 rounded-2xl shadow-sm p-4">
+            <div className="overflow-x-auto p-1">
+              <table className="w-full">
+                <thead>
+                  <tr className="text-sm text-gray-500">
+                    <th className="text-left py-3">Exam ID</th>
+                    <th className="text-left py-3">Student Name</th>
+                    <th className="text-left py-3">Subject</th>
+                    <th className="text-left py-3">Class</th>
+                    <th className="text-left py-3">Status</th>
+                    <th className="text-left py-3">Sub. Date</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody className="bg-white">
+                  {teacherData.examResults.map((result, index) => (
+                    <tr
+                      key={index}
+                      className={`border-b border-gray-50 ${selectedRows.has(result.id) ? "font-semibold" : ""}`}
+                    >
+                      <td className="py-4 pl-3">
+                        <input
+                          type="checkbox"
+                          className="w-4 h-4 text-indigo-600"
+                          checked={selectedRows.has(result.id)}
+                          onChange={() => {
+                            setSelectedRows((prev) => {
+                              const next = new Set(prev);
+                              if (next.has(result.id)) {
+                                next.delete(result.id);
+                              } else {
+                                next.add(result.id);
+                              }
+                              return next;
+                            });
+                          }}
+                        />
+                        <span className="ml-2 text-sm text-gray-800">
+                          {result.id}
+                        </span>
+                      </td>
+                      <td className="py-4 text-sm text-gray-800">
+                        {result.studentName}
+                      </td>
+                      <td className="py-4 text-sm text-gray-600">
+                        {result.subject}
+                      </td>
+                      <td className="py-4 text-sm text-gray-600">
+                        {result.class}
+                      </td>
+                      <td className="py-4">
+                        <span
+                          className={`px-2 py-1 text-xs rounded-full ${
+                            result.status === "Active"
+                              ? "bg-green-100 text-green-600"
+                              : result.status === "Completed"
+                              ? "bg-blue-100 text-blue-600"
+                              : "bg-gray-100 text-gray-600"
+                          }`}
+                        >
+                          {result.status}
+                        </span>
+                      </td>
+                      <td className="py-4 text-sm text-gray-600">
+                        {result.date}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-6 flex items-center justify-between">
+              <div className="text-sm text-gray-500">Showing 1-10 of {teacherData.examResults.length}</div>
+              <div className="inline-flex items-center gap-2">
+                <button className="px-3 py-1 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">Prev</button>
+                <button className="px-3 py-1 rounded-2xl bg-orange-300 text-white text-sm">1</button>
+                <button className="px-3 py-1 rounded-2xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">2</button>
+                <button className="px-3 py-1 rounded-2xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">3</button>
+                <button className="px-3 py-1 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">Next</button>
+              </div>
+            </div>
           </div>
-
-          
         </div>
-
-        {/* Event Calendar & Timeline */}
-        <div className="space-y-6">
+        {/* Event Calendar & Timeline - Column 3, Rows 1-2 */}
+        <div className="lg:col-start-3 lg:row-span-2 space-y-6 p-5 rounded-2xl bg-gray-50">
           {/* Calendar */}
-          <div className="bg-indigo-600 rounded-xl p-6 text-white">
+          <div className="bg-sky-800 rounded-2xl p-6 text-white">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-lg font-semibold">Event Calendar</h2>
               <MoreHorizontal className="w-5 h-5" />
@@ -230,15 +271,14 @@ const TeacherDashboard = () => {
             </div>
           </div>
 
-          {/* Timeline */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-lg font-semibold text-gray-800 mb-6">
-              Today's Timeline
-            </h2>
+          {/* Timeline header outside the card */}
+          <h2 className="text-lg font-bold text-gray-800">Today's Timeline</h2>
 
+          {/* Timeline items as separate rounded cards */}
+          <div className="rounded-xl">
             <div className="space-y-4">
               {teacherData.timeline.map((item, index) => (
-                <div key={index} className="flex items-start space-x-3">
+                <div key={index} className="bg-white rounded-2xl shadow-sm p-4 flex items-start gap-3">
                   <div className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-medium text-gray-800 mb-1">

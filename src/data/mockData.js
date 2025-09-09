@@ -1,10 +1,16 @@
+import TeacherIcon from '../assets/Teacher-icon.png'
+import StudentIcon from '../assets/Student-icon.png'
+import RandomPeopleAvatar1 from '../assets/random-people-avatar1.png'
+import RandomPeopleAvatar2 from '../assets/random-people-avatar2.png'
+import RandomPeopleAvatar3 from '../assets/random-people-avatar3.png'
+
 export const teacherData = {
   profile: {
     name: "Carla Peter",
     email: "carlapeter@gmail.com",
-    phone: "+88 9856418",
+    phone: "88 9856418",
     role: "IA",
-    avatar: "/api/placeholder/100/100"
+    avatar: TeacherIcon
   },
   stats: {
     events: 6,
@@ -27,6 +33,11 @@ export const teacherData = {
     { title: "Expressions, equations and inequalities", class: "Class: 6th", time: "2:00 pm" },
     { title: "Geometric transformations", class: "Class: 7th", time: "4:00 pm" },
     { title: "Solve real-world problems involving...", class: "", time: "" }
+  ],
+  groupAvatars: [
+    { id: 1, src: RandomPeopleAvatar1, alt: "Random avatar for group creation" },
+    { id: 2, src: RandomPeopleAvatar2, alt: "Random avatar for group creation" },
+    { id: 3, src: RandomPeopleAvatar3, alt: "Random avatar for group creation" }
   ]
 };
 
@@ -36,7 +47,7 @@ export const studentData = {
     email: "jasonblack@gmail.com",
     phone: "88 9856418",
     role: "1406",
-    avatar: "../assets/student.png"
+    avatar: StudentIcon
   },
   personalDetails: {
     gender: 'Male',

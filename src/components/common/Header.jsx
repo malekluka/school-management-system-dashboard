@@ -30,14 +30,14 @@ const Header = () => {
 
           <div className="flex items-center space-x-3">
             <div className="relative">
-              <Mail className="w-5 h-5 text-gray-400" />
-              <span className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+              <Mail className="w-6 h-6 text-gray-400" />
+              <span className="absolute -top-2 -right-2 bg-orange-300 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 3
               </span>
             </div>
             <div className="relative">
-              <Bell className="w-5 h-5 text-gray-400" />
-              <span className="absolute -top-2 -right-2 bg-indigo-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
+              <Bell className="w-6 h-6 text-gray-400" />
+              <span className="absolute -top-2 -right-2 bg-indigo-900 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
                 6
               </span>
             </div>
