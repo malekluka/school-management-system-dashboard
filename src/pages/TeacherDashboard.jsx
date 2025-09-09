@@ -129,7 +129,7 @@ const TeacherDashboard = () => {
         </div>
 
         {/* Exam Results - Columns 1-2, Row 2 */}
-        <div className="lg:col-start-1 lg:col-span-2 lg:row-start-2">
+        <div className="lg:col-start-1 lg:col-span-2 lg:row-start-2 -mt-10">
           <div className="flex items-center justify-between mb-2">
             <h2 className="text-lg font-bold text-gray-800">Exam helds</h2>
             <div className="flex space-x-2">
