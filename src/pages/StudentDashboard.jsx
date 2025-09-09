@@ -49,12 +49,11 @@ const StudentDashboard = () => {
   ];
 
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-6 items-stretch">
+    <div className="space-y-6 p-4 md:p-0">
+      <div className="grid grid-cols-1 lg:grid-cols-3 lg:grid-rows-2 gap-4 md:gap-6 items-stretch">
         {/* Column 1 spans two rows */}
-        <div className="lg:col-start-1 lg:row-span-2 space-y-6">
-          <div className="bg-gray-50 rounded-2xl shadow-sm p-6">
-            <div className="flex items-center justify-between mb-6">
+        <div className="lg:col-start-1 lg:row-span-2 space-y-4 md:space-y-6">
+        <div className="bg-gray-50 rounded-2xl shadow-sm p-6 h-full max-w-md mx-auto lg:max-w-none lg:mx-0">            <div className="flex items-center justify-between mb-4 md:mb-6">
               <h2 className="text-lg font-semibold text-gray-800">Bio</h2>
               <button className="text-gray-400">
                 <MoreHorizontal className="w-5 h-5" />
@@ -64,9 +63,9 @@ const StudentDashboard = () => {
               <img
                 src={studentData.profile.avatar}
                 alt="Profile"
-                className="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-indigo-100"
+                className="w-20 h-20 md:w-24 md:h-24 rounded-full mx-auto mb-4 border-4 border-indigo-100"
               />
-              <h3 className="font-bold text-gray-800">
+              <h3 className="font-bold text-gray-800 text-lg md:text-xl mb-2">
                 {studentData.profile.name}{" "}
                 <span className="text-orange-500">
                   ({studentData.profile.role})
@@ -79,67 +78,67 @@ const StudentDashboard = () => {
                 + {studentData.profile.phone}
               </p>
             </div>
-            <div className="mt-6 rounded-2xl bg-white">
+            <div className="mt-4 md:mt-6 rounded-2xl bg-white">
               <div className="bg-orange-50 text-gray-800 rounded-t-xl px-4 py-3 flex items-center justify-between">
                 <span className="text-sm font-medium">Personal Details:</span>
                 <span className="text-gray-500">^</span>
               </div>
-              <div className="border border-orange-100 border-t-0 rounded-b-xl divide-y">
-                <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-600">
+              <div className="border border-orange-100 border-t-0 rounded-b-xl divide-y max-h-64 md:max-h-none overflow-y-auto">
+                <div className="flex items-center justify-between px-4 py-2 md:py-3 text-sm text-gray-600">
                   <span>Gender:</span>
                   <span className="text-gray-800">
                     {studentData.personalDetails.gender}
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-600">
+                <div className="flex items-center justify-between px-4 py-2 md:py-3 text-sm text-gray-600">
                   <span>Father's Name:</span>
-                  <span className="text-gray-800">
+                  <span className="text-gray-800 text-right">
                     {studentData.personalDetails.fatherName}
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-600">
+                <div className="flex items-center justify-between px-4 py-2 md:py-3 text-sm text-gray-600">
                   <span>Mother's Name:</span>
-                  <span className="text-gray-800">
+                  <span className="text-gray-800 text-right">
                     {studentData.personalDetails.motherName}
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-600">
+                <div className="flex items-center justify-between px-4 py-2 md:py-3 text-sm text-gray-600">
                   <span>Date Of Birth:</span>
                   <span className="text-gray-800">
                     {studentData.personalDetails.dob}
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-600">
+                <div className="flex items-center justify-between px-4 py-2 md:py-3 text-sm text-gray-600">
                   <span>Religion:</span>
                   <span className="text-gray-800">
                     {studentData.personalDetails.religion}
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-600">
+                <div className="flex items-center justify-between px-4 py-2 md:py-3 text-sm text-gray-600">
                   <span>Father Occupation:</span>
-                  <span className="text-gray-800">
+                  <span className="text-gray-800 text-right">
                     {studentData.personalDetails.fatherOccupation}
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-600">
+                <div className="flex items-center justify-between px-4 py-2 md:py-3 text-sm text-gray-600">
                   <span>Admission Date:</span>
                   <span className="text-gray-800">
                     {studentData.personalDetails.admissionDate}
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-600">
+                <div className="flex items-center justify-between px-4 py-2 md:py-3 text-sm text-gray-600">
                   <span>Address:</span>
-                  <span className="text-gray-800">
+                  <span className="text-gray-800 text-right">
                     {studentData.personalDetails.address}
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-600">
+                <div className="flex items-center justify-between px-4 py-2 md:py-3 text-sm text-gray-600">
                   <span>Class:</span>
                   <span className="text-gray-800">
                     {studentData.personalDetails.className}
                   </span>
                 </div>
-                <div className="flex items-center justify-between px-4 py-3 text-sm text-gray-600">
+                <div className="flex items-center justify-between px-4 py-2 md:py-3 text-sm text-gray-600">
                   <span>Section:</span>
                   <span className="text-gray-800">
                     {studentData.personalDetails.section}
@@ -147,17 +146,17 @@ const StudentDashboard = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-6 flex items-center justify-center space-x-4">
+            <div className="mt-4 md:mt-6 flex items-center justify-center space-x-4">
               {socialIcons.map((Icon, i) => (
                 <div
                   key={i}
-                  className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center"
+                  className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-gray-100 flex items-center justify-center"
                 >
-                  <Icon className="w-5 h-5 text-gray-500 fill-current" />
+                  <Icon className="w-4 h-4 md:w-5 md:h-5 text-gray-500 fill-current" />
                 </div>
               ))}
             </div>
-            <div className="mt-6 bg-white rounded-2xl p-6 ">
+            <div className="mt-4 md:mt-6 bg-white rounded-2xl p-4 md:p-6">
               <h3 className="text-gray-800 font-semibold mb-2">
                 About Student
               </h3>
@@ -169,41 +168,41 @@ const StudentDashboard = () => {
         </div>
 
         {/* Column 2 Row 1: Stats and Attendance */}
-        <div className="lg:col-start-2 lg:col-span-1 lg:row-start-1 space-y-6">
-          <div className="grid grid-cols-2 gap-6">
-            <div className="bg-gray-50 rounded-2xl shadow-sm p-6 text-center">
+        <div className="lg:col-start-2 lg:col-span-1 lg:row-start-1 space-y-4 md:space-y-6">
+          <div className="grid grid-cols-2 gap-4 md:gap-6">
+            <div className="bg-gray-50 rounded-2xl shadow-sm p-4 md:p-6 text-center">
               <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
                 <div className="w-6 h-6 bg-indigo-600 rounded-full"></div>
               </div>
               <div className="text-xs text-gray-500 mb-1">Events</div>
-              <div className="text-2xl font-bold text-gray-800 mb-1">
+              <div className="text-xl md:text-2xl font-bold text-gray-800 mb-1">
                 {studentData.stats.events}
               </div>
             </div>
-            <div className="bg-gray-50 rounded-2xl shadow-sm p-6 text-center">
+            <div className="bg-gray-50 rounded-2xl shadow-sm p-4 md:p-6 text-center">
               <div className="w-6 h-6 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-2">
                 <div className="w-6 h-6 bg-indigo-600 rounded"></div>
               </div>
               <div className="text-xs text-gray-500 mb-1">Growth</div>
-              <div className="text-2xl font-bold text-gray-800 mb-1">
+              <div className="text-xl md:text-2xl font-bold text-gray-800 mb-1">
                 {studentData.stats.targetAchieved}%
               </div>
             </div>
           </div>
-          <div className="bg-gray-50 shadow-sm rounded-2xl p-6">
-            <h2 className="text-lg font-semibold text-gray-800 mb-6">
+          <div className="bg-gray-50 shadow-sm rounded-2xl p-4 md:p-6">
+            <h2 className="text-lg font-semibold text-gray-800 mb-4 md:mb-6">
               Attendance
             </h2>
-            <div className="flex items-center justify-center mb-6">
-              <div className="relative w-32 h-32">
+            <div className="flex items-center justify-center mb-4 md:mb-6">
+              <div className="relative w-28 h-28 md:w-32 md:h-32">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
                     <Pie
                       data={pieData}
                       cx="50%"
                       cy="50%"
-                      innerRadius={40}
-                      outerRadius={60}
+                      innerRadius={35}
+                      outerRadius={55}
                       dataKey="value"
                     >
                       {pieData.map((entry, index) => (
@@ -258,26 +257,26 @@ const StudentDashboard = () => {
         </div>
 
         {/* Column 3 Row 1: Event Calendar */}
-        <div className="lg:col-start-3 lg:row-start-1 space-y-6 bg-gray-50 rounded-2xl shadow-sm">
-          <div className="bg-sky-800 rounded-2xl p-6 text-white">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-semibold">Event Calendar</h2>
+        <div className="lg:col-start-3 lg:row-start-1 space-y-4 md:space-y-6 bg-gray-50 rounded-2xl shadow-sm">
+          <div className="bg-sky-800 rounded-2xl p-4 md:p-6 text-white max-w-md mx-auto lg:max-w-none lg:mx-0">
+            <div className="flex items-center justify-between mb-4 md:mb-6">
+              <h2 className="text-base md:text-lg font-semibold">Event Calendar</h2>
               <MoreHorizontal className="w-5 h-5" />
             </div>
-            <div className="flex space-x-4 mb-6 justify-center">
-              <button className="px-4 py-2 bg-orange-500 rounded-md text-sm">
+            <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 mb-4 md:mb-6 justify-center">
+              <button className="px-3 md:px-4 py-2 bg-orange-500 rounded-md text-xs md:text-sm">
                 Day to day
               </button>
-              <button className="px-4 py-2 text-indigo-200 text-sm hover:bg-indigo-500 rounded-md">
+              <button className="px-3 md:px-4 py-2 text-indigo-200 text-xs md:text-sm hover:bg-indigo-500 rounded-md">
                 Events
               </button>
             </div>
             <div className="mb-4">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="font-medium">Feb 2023</h3>
+                <h3 className="font-medium text-sm md:text-base">Feb 2023</h3>
                 <div className="flex space-x-2">
-                  <ChevronLeft className="w-5 h-5 cursor-pointer hover:bg-indigo-500 rounded p-1" />
-                  <ChevronRight className="w-5 h-5 cursor-pointer hover:bg-indigo-500 rounded p-1" />
+                  <ChevronLeft className="w-4 h-4 md:w-5 md:h-5 cursor-pointer hover:bg-indigo-500 rounded p-1" />
+                  <ChevronRight className="w-4 h-4 md:w-5 md:h-5 cursor-pointer hover:bg-indigo-500 rounded p-1" />
                 </div>
               </div>
               <div className="grid grid-cols-7 gap-1 text-xs mb-2">
@@ -287,7 +286,7 @@ const StudentDashboard = () => {
                   </div>
                 ))}
               </div>
-              <div className="grid grid-cols-7 gap-1 text-sm">
+              <div className="grid grid-cols-7 gap-1 text-xs md:text-sm">
                 {Array.from({ length: 28 }, (_, i) => (
                   <div
                     key={i}
@@ -307,24 +306,24 @@ const StudentDashboard = () => {
 
         {/* Row 2, Columns 2-3: Exam Results */}
         <div className="lg:col-start-2 lg:col-span-2 lg:row-start-2">
-          <div className="flex items-center justify-between mb-2">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-2 gap-2">
             <h2 className="text-lg font-bold text-gray-800">Exam results</h2>
             <div className="flex space-x-2">
               <Printer className="w-5 h-5 text-gray-400 cursor-pointer hover:text-gray-600" />
               <Download className="w-5 h-5 text-gray-400 cursor-pointer hover:text-gray-600" />
             </div>
           </div>
-          <div className="bg-gray-50 rounded-2xl shadow-sm p-4">
+          <div className="bg-gray-50 rounded-2xl shadow-sm p-2 md:p-4">
             <div className="overflow-x-auto p-1">
-              <table className="w-full">
+              <table className="w-full min-w-[600px]">
                 <thead>
                   <tr className="text-sm text-gray-500">
-                    <th className="text-left py-3">Exam ID</th>
-                    <th className="text-left py-3">Type</th>
-                    <th className="text-left py-3">Subject</th>
-                    <th className="text-left py-3">Grade</th>
-                    <th className="text-left py-3">Percent</th>
-                    <th className="text-left py-3">Date</th>
+                    <th className="text-left py-3 px-1 md:px-0">Exam ID</th>
+                    <th className="text-left py-3 px-1 md:px-0">Type</th>
+                    <th className="text-left py-3 px-1 md:px-0">Subject</th>
+                    <th className="text-left py-3 px-1 md:px-0">Grade</th>
+                    <th className="text-left py-3 px-1 md:px-0">Percent</th>
+                    <th className="text-left py-3 px-1 md:px-0">Date</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white">
@@ -335,7 +334,7 @@ const StudentDashboard = () => {
                         selectedRows.has(result.id) ? "font-semibold" : ""
                       }`}
                     >
-                      <td className="py-4 pl-3">
+                      <td className="py-3 md:py-4 pl-1 md:pl-3">
                         <input
                           type="checkbox"
                           className="w-4 h-4 text-indigo-600"
@@ -356,19 +355,19 @@ const StudentDashboard = () => {
                           {result.id}
                         </span>
                       </td>
-                      <td className="py-4 text-sm text-gray-800">
+                      <td className="py-3 md:py-4 text-sm text-gray-800 px-1">
                         {result.type}
                       </td>
-                      <td className="py-4 text-sm text-gray-600">
+                      <td className="py-3 md:py-4 text-sm text-gray-600 px-1">
                         {result.subject}
                       </td>
-                      <td className="py-4 text-sm text-gray-600">
+                      <td className="py-3 md:py-4 text-sm text-gray-600 px-1">
                         {result.grade}
                       </td>
-                      <td className="py-4 text-sm text-gray-600">
+                      <td className="py-3 md:py-4 text-sm text-gray-600 px-1">
                         {result.percent}%
                       </td>
-                      <td className="py-4 text-sm text-gray-600">
+                      <td className="py-3 md:py-4 text-sm text-gray-600 px-1">
                         {result.date}
                       </td>
                     </tr>
@@ -376,24 +375,24 @@ const StudentDashboard = () => {
                 </tbody>
               </table>
             </div>
-            <div className="mt-6 flex items-center justify-between">
+            <div className="mt-4 md:mt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
               <div className="text-sm text-gray-500">
                 Showing 1-10 of {studentData.examResults.length}
               </div>
-              <div className="inline-flex items-center gap-2">
-                <button className="px-3 py-1 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+              <div className="inline-flex items-center gap-1 md:gap-2 flex-wrap">
+                <button className="px-2 md:px-3 py-1 rounded-lg border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50">
                   Prev
                 </button>
-                <button className="px-3 py-1 rounded-2xl bg-orange-300 text-white text-sm">
+                <button className="px-2 md:px-3 py-1 rounded-2xl bg-orange-300 text-white text-xs md:text-sm">
                   1
                 </button>
-                <button className="px-3 py-1 rounded-2xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                <button className="px-2 md:px-3 py-1 rounded-2xl border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50">
                   2
                 </button>
-                <button className="px-3 py-1 rounded-2xl border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                <button className="px-2 md:px-3 py-1 rounded-2xl border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50">
                   3
                 </button>
-                <button className="px-3 py-1 rounded-lg border border-gray-200 text-sm text-gray-700 hover:bg-gray-50">
+                <button className="px-2 md:px-3 py-1 rounded-lg border border-gray-200 text-xs md:text-sm text-gray-700 hover:bg-gray-50">
                   Next
                 </button>
               </div>
